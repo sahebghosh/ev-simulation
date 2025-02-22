@@ -8,7 +8,7 @@ type Props = {
 };
 
 const SummaryMetrics: React.FC<Props> = ({ output, activeTab }) => {
-  // Based on activeTab which aggregated metrics to show
+  // Based on activeTab decide which aggregated metrics to show
   let totalEvents = output.totalChargingEvents;
   let totalEnergy = output.totalEnergyCharged;
   let averageDuration = output.averageChargingDuration;

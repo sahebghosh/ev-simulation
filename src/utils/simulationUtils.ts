@@ -49,7 +49,7 @@ const getTimeSlotFactor = (hour: number): number => {
   return 1.0;
 };
 
-// Introduced a random variation of ±10%
+// Introduce a random variation of ±10%
 const randomVariation = (value: number): number => {
   return value * (0.9 + Math.random() * 0.2);
 };
@@ -62,7 +62,8 @@ export const simulateData = (params: SimulationParams): SimulationOutput => {
     chargingPowerPerChargepoint,
   } = params;
 
-  // Calculate charging duration per event.
+  // Calculating charging duration per event.
+  // This is a fundamental electrical relationship: Duration = Energy / Power.
   const chargingDuration = consumptionPerCar / chargingPowerPerChargepoint;
 
   let totalEvents = 0;
@@ -102,6 +103,7 @@ export const simulateData = (params: SimulationParams): SimulationOutput => {
   );
 
   // Daily aggregated metrics.
+  // Average Charging Duration here is the same as for each event, because it is defined by the ratio consumption per car / charging power.
   const dailyMetrics: AggregatedMetrics = {
     totalEvents,
     totalEnergy: totalEnergyCharged,
@@ -123,6 +125,7 @@ export const simulateData = (params: SimulationParams): SimulationOutput => {
     totalEvents: dailyMetrics.totalEvents * 7,
     totalEnergy: dailyMetrics.totalEnergy * 7,
     peakPower: dailyMetrics.peakPower,
+    // For simplicity, we use the daily average for weekly aggregation.
     averageChargingDuration: dailyMetrics.averageChargingDuration,
     chartData: weeklyChartData,
   };
@@ -150,7 +153,7 @@ export const simulateData = (params: SimulationParams): SimulationOutput => {
     { length: 12 },
     (_, i) => ({
       label: new Date(0, i).toLocaleString('default', { month: 'short' }),
-      events: randomVariation(dailyMetrics.totalEvents * 30),
+      events: randomVariation(dailyMetrics.totalEvents * 30), // approximate monthly events
       energy: randomVariation(dailyMetrics.totalEnergy * 30),
       peakPower: dailyMetrics.peakPower,
     })
