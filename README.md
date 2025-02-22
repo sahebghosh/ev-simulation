@@ -10,13 +10,16 @@
 1. **Clone the Repository:**
 
    git clone https://github.com/sahebghosh/ev-simulation.git
+
+2. **Change to project folder:**
+
    cd ev-simulation
 
-2. **Install Dependencies:**
+3. **Install Dependencies:**
 
    npm install
 
-3. **Running the Application**
+4. **Running the Application**
 
    npm run dev
 
