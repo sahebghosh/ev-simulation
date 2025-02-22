@@ -70,8 +70,6 @@ $$
 
 which is widely used in electrical engineering—for example, in utility rate calculations and EV charging studies.
 
-**Reference:** [U.S. Department of Energy – EV Basics](https://afdc.energy.gov/fuels/electric_basics.html)
-
 ### 2. Estimating the Number of Charging Events
 
 The simulation estimates the number of charging events by considering:
