@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS custom properties for theme colors */
+:root {
+  --color-primary: #9C93FF;
+  --color-secondary: #6C63FF;
+  --color-energy: #fca3b0;
+  --color-peak: #81E6D9;
+}
+
+/* Optionally, you can define dark mode overrides, 
+   but here we simply change the overall background via classes in App.tsx */
